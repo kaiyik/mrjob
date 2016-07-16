@@ -284,7 +284,7 @@ class HadoopFilesystem(Filesystem):
 
         # use -p on Hadoop 2 (see #991, #845)
         if uses_yarn(version):
-            args = ['fs', '-mkdir', '-p', path]
+            args = ['fs', '-mkdir', '-p', path.rstrip('/')]
         else:
             args = ['fs', '-mkdir', path]
 
